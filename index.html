@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eStamp Online Verification</title>
+
+<style>
+:root{
+  --green:#3f8f2e;
+  --light-green:#e7f6ea;
+  --border:#e2e2e2;
+  --gray:#6b6b6b;
+  --dark-gray:#5f5f5f;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background:#ffffff;
+  color:#222;
+}
+
+/* ===== TOP STRIP ===== */
+.top-strip{
+  background:#dff5e5;
+  font-size:13px;
+  padding:6px 20px;
+}
+
+/* ===== HEADER ===== */
+.header{
+  background:var(--green);
+  padding:15px 20px;
+  display:flex;
+  align-items:center;
+}
+
+.header a{
+  display:inline-block;
+}
+
+.header img{
+  height:65px;
+  cursor:pointer;
+}
+
+/* ===== NAV ===== */
+.nav{
+  background:#efefef;
+  padding:8px 20px;
+  font-size:14px;
+}
+
+.nav a{
+  text-decoration:none;
+  color:#222;
+  font-weight:500;
+  padding:6px 12px;
+  border-radius:4px;
+}
+
+.nav a:hover{
+  background:#ddd;
+}
+
+/* ===== CONTENT ===== */
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:25px 20px 40px;
+}
+
+h2{
+  margin:10px 0 20px;
+  font-size:22px;
+  font-weight:600;
+}
+
+/* ===== TABLE ===== */
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+
+th, td{
+  border:1px solid var(--border);
+  padding:10px 12px;
+  vertical-align:top;
+}
+
+th{
+  width:30%;
+  background:#ffffff;
+  font-weight:600;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:#6a6a6a;
+  color:#fff;
+  margin-top:40px;
+  text-align:center;
+  padding:25px 10px;
+}
+
+.footer .block{
+  margin:12px 0;
+  font-size:14px;
+}
+
+.footer hr{
+  width:70%;
+  border:0;
+  border-top:1px solid rgba(255,255,255,0.3);
+  margin:10px auto;
+}
+
+.footer-logo-single{
+  margin:25px auto 10px;
+  text-align:center;
+}
+
+.footer-logo-single img{
+  max-width:420px;
+  width:90%;
+  height:auto;
+  opacity:0.95;
+}
+
+.footer small{
+  display:block;
+  margin-top:15px;
+  font-size:12px;
+  opacity:.85;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  th,td{
+    display:block;
+    width:100%;
+  }
+  th{
+    border-bottom:none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP STRIP -->
+<div class="top-strip">
+  HELPLINE: (042) 111-22-22-77 (Monday to Saturday 8:00 AM - 5:00 PM)
+</div>
+
+<!-- HEADER (LOGO CLICKABLE) -->
+<div class="header">
+  <a href="https://es.punjab-zameen.gov.pk/eStampCitizenPortal/ChallanFormView/HomePage" target="_blank">
+    <img src="logo.png" alt="e-Stamping">
+  </a>
+</div>
+
+<!-- NAV (HOME CLICKABLE) -->
+<div class="nav">
+  <a href="https://es.punjab-zameen.gov.pk/eStampCitizenPortal/ChallanFormView/HomePage">
+    Home
+  </a>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+  <h2>eStamp Online Verification</h2>
+
+  <table>
+    <tr><th>eStamp ID</th><td id="id"></td></tr>
+    <tr><th>Type</th><td id="type"></td></tr>
+    <tr><th>Amount</th><td id="amount"></td></tr>
+    <tr><th>Description</th><td id="description"></td></tr>
+    <tr><th>Applicant</th><td id="applicant"></td></tr>
+    <tr><th>S/O</th><td id="so"></td></tr>
+    <tr><th>Address</th><td id="address"></td></tr>
+    <tr><th>Issue Date</th><td id="issue"></td></tr>
+    <tr><th>Delisted on/Validity</th><td id="validity"></td></tr>
+    <tr><th>Amount in Words</th><td id="words"></td></tr>
+    <tr><th>Reason</th><td id="reason"></td></tr>
+    <tr><th>Vendor Information</th><td id="vendor"></td></tr>
+  </table>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="block">
+  <a href="https://es.punjab-zameen.gov.pk/eStampCitizenPortal/ChallanFormView/AboutUsForeStamping"
+     style="color:#fff; text-decoration:none;">
+    About Us
+  </a>
+</div>
+
+  <hr>
+  <div class="block">
+  <a href="https://es.punjab-zameen.gov.pk/eStampCitizenPortal/ChallanFormView/HomePage"
+     style="color:#fff; text-decoration:none;">
+    e-Stamping
+  </a>
+</div>
+  <hr>
+  <div class="block">
+  <a href="https://bor.punjab.gov.pk/"
+     style="color:#fff; text-decoration:none;">
+    Board Of Revenue
+  </a>
+</div>
+  <hr>
+  <div class="block">Contact Us</div>
+  <hr>
+  <div class="block">estamp-support@punjab-zameen.gov.pk</div>
+  <hr>
+  <div class="block">
+  <a href="https://es.punjab-zameen.gov.pk/eStampCitizenPortal/ChallanFormView/HelpFAQs"
+     style="color:#fff; text-decoration:none;">
+    FAQs
+  </a>
+</div>
+
+  <div class="footer-logo-single">
+    <img src="footer-logos.png" alt="Punjab Government Logos">
+  </div>
+
+  <small>© Copyrights GOP 2026, All Rights Reserved</small>
+</div>
+
+<script>
+/* URL PARAM FETCH */
+const q = new URLSearchParams(window.location.search);
+
+/* AUTO FILL */
+document.getElementById("id").innerText = q.get("id") || "-";
+document.getElementById("type").innerText = q.get("type") || "-";
+document.getElementById("amount").innerText = q.get("amount") || "-";
+document.getElementById("description").innerText = q.get("desc") || "-";
+document.getElementById("applicant").innerText = q.get("applicant") || "-";
+document.getElementById("so").innerText = q.get("so") || "-";
+document.getElementById("address").innerText = q.get("address") || "-";
+document.getElementById("issue").innerText = q.get("issue") || "-";
+document.getElementById("validity").innerText = q.get("validity") || "-";
+document.getElementById("words").innerText = q.get("words") || "-";
+document.getElementById("reason").innerText = q.get("reason") || "-";
+document.getElementById("vendor").innerText = q.get("vendor") || "-";
+</script>
+
+</body>
+</html>
