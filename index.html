@@ -242,23 +242,45 @@ tr:nth-child(even) {
 </div>
 
 <script>
-/* URL PARAM FETCH */
-const q = new URLSearchParams(window.location.search);
+const params = new URLSearchParams(window.location.search);
+const stampId = params.get("id");
 
-/* AUTO FILL */
-document.getElementById("id").innerText = q.get("id") || "-";
-document.getElementById("type").innerText = q.get("type") || "-";
-document.getElementById("amount").innerText = q.get("amount") || "-";
-document.getElementById("description").innerText = q.get("desc") || "-";
-document.getElementById("applicant").innerText = q.get("applicant") || "-";
-document.getElementById("so").innerText = q.get("so") || "-";
-document.getElementById("address").innerText = q.get("address") || "-";
-document.getElementById("issue").innerText = q.get("issue") || "-";
-document.getElementById("validity").innerText = q.get("validity") || "-";
-document.getElementById("words").innerText = q.get("words") || "-";
-document.getElementById("reason").innerText = q.get("reason") || "-";
-document.getElementById("vendor").innerText = q.get("vendor") || "-";
+// ✅ LIVE BACKEND URL
+const API_BASE = "https://verify-backend-b8q1.onrender.com";
+
+if (!stampId) {
+  alert("Invalid or missing eStamp ID");
+} else {
+  fetch(`${API_BASE}/api/getCertificate?id=${stampId}`)
+    .then(res => res.json())
+    .then(result => {
+      if (!result.success) {
+        alert(result.message || "Record not found");
+        return;
+      }
+
+      const d = result.data;
+
+      document.getElementById("id").innerText = d.id || "-";
+      document.getElementById("type").innerText = d.type || "-";
+      document.getElementById("amount").innerText = d.amount || "-";
+      document.getElementById("description").innerText = d.description || "-";
+      document.getElementById("applicant").innerText = d.applicant || "-";
+      document.getElementById("so").innerText = d.so || "-";
+      document.getElementById("address").innerText = d.address || "-";
+      document.getElementById("issue").innerText = d.issueDate || "-";
+      document.getElementById("validity").innerText = d.validity || "-";
+      document.getElementById("words").innerText = d.amountWords || "-";
+      document.getElementById("reason").innerText = d.reason || "-";
+      document.getElementById("vendor").innerText = d.vendor || "-";
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Server error, please try again later");
+    });
+}
 </script>
+
 
 </body>
 </html>
