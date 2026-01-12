@@ -98,11 +98,45 @@ th{
   width:30%;
   background:#ffffff;
   font-weight:600;
-  border-bottom: 1px solid #e0e0e0;
 }
 
-tr:nth-child(even) {
-  background-color: #ffffff;
+tr:nth-child(even){
+  background:#ffffff;
+}
+
+/* ===== RESPONSIVE FIX (KEEP 2 COLUMN) ===== */
+@media (max-width: 768px) {
+
+  table{
+    width:100%;
+    font-size:14px;
+  }
+
+  tr{
+    display:table-row;
+  }
+
+  th,
+  td{
+    display:table-cell;   /* 🔑 important */
+    padding:10px 8px;
+    border:1px solid #e2e2e2;
+    vertical-align:middle;
+  }
+
+  th{
+    width:45%;
+    background:#f7f7f7;
+    font-weight:600;
+    color:#222;
+    white-space:nowrap;
+  }
+
+  td{
+    width:55%;
+    color:#333;
+    word-break:break-word;
+  }
 }
 
 /* ===== FOOTER ===== */
@@ -144,42 +178,25 @@ tr:nth-child(even) {
   font-size:12px;
   opacity:.85;
 }
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px){
-  th,td{
-    display:block;
-    width:100%;
-  }
-  th{
-    border-bottom:none;
-  }
-}
 </style>
 </head>
 
 <body>
 
-<!-- TOP STRIP -->
 <div class="top-strip">
   HELPLINE: (042) 111-22-22-77 (Monday to Saturday 8:00 AM - 5:00 PM)
 </div>
 
-<!-- HEADER (LOGO CLICKABLE) -->
 <div class="header">
-  <a href="https://es.punjab-zameen.gov.pk/eStampCitizenPortal/ChallanFormView/HomePage" target="_blank">
+  <a href="https://es.punjab-zameen.gov.pk/eStampCitizenPortal/ChallanFormView/HomePage">
     <img src="logo.png" alt="e-Stamping">
   </a>
 </div>
 
-<!-- NAV (HOME CLICKABLE) -->
 <div class="nav">
-  <a href="https://es.punjab-zameen.gov.pk/eStampCitizenPortal/ChallanFormView/HomePage">
-    Home
-  </a>
+  <a href="https://es.punjab-zameen.gov.pk/eStampCitizenPortal/ChallanFormView/HomePage">Home</a>
 </div>
 
-<!-- CONTENT -->
 <div class="container">
   <h2>eStamp Online Verification</h2>
 
@@ -199,40 +216,26 @@ tr:nth-child(even) {
   </table>
 </div>
 
-<!-- FOOTER -->
 <div class="footer">
   <div class="block">
-  <a href="https://es.punjab-zameen.gov.pk/eStampCitizenPortal/ChallanFormView/AboutUsForeStamping"
-     style="color:#fff; text-decoration:none;">
-    About Us
-  </a>
-</div>
-
+    <a href="https://es.punjab-zameen.gov.pk/eStampCitizenPortal/ChallanFormView/AboutUsForeStamping" style="color:#fff;">About Us</a>
+  </div>
   <hr>
   <div class="block">
-  <a href="https://es.punjab-zameen.gov.pk/eStampCitizenPortal/ChallanFormView/HomePage"
-     style="color:#fff; text-decoration:none;">
-    e-Stamping
-  </a>
-</div>
+    <a href="https://es.punjab-zameen.gov.pk/eStampCitizenPortal/ChallanFormView/HomePage" style="color:#fff;">e-Stamping</a>
+  </div>
   <hr>
   <div class="block">
-  <a href="https://bor.punjab.gov.pk/"
-     style="color:#fff; text-decoration:none;">
-    Board Of Revenue
-  </a>
-</div>
+    <a href="https://bor.punjab.gov.pk/" style="color:#fff;">Board Of Revenue</a>
+  </div>
   <hr>
   <div class="block">Contact Us</div>
   <hr>
   <div class="block">estamp-support@punjab-zameen.gov.pk</div>
   <hr>
   <div class="block">
-  <a href="https://es.punjab-zameen.gov.pk/eStampCitizenPortal/ChallanFormView/HelpFAQs"
-     style="color:#fff; text-decoration:none;">
-    FAQs
-  </a>
-</div>
+    <a href="https://es.punjab-zameen.gov.pk/eStampCitizenPortal/ChallanFormView/HelpFAQs" style="color:#fff;">FAQs</a>
+  </div>
 
   <div class="footer-logo-single">
     <img src="footer-logos.png" alt="Punjab Government Logos">
@@ -245,7 +248,6 @@ tr:nth-child(even) {
 const params = new URLSearchParams(window.location.search);
 const stampId = params.get("id");
 
-// ✅ LIVE BACKEND URL
 const API_BASE = "https://verify-backend-b8q1.onrender.com";
 
 if (!stampId) {
@@ -274,13 +276,11 @@ if (!stampId) {
       document.getElementById("reason").innerText = d.reason || "-";
       document.getElementById("vendor").innerText = d.vendor || "-";
     })
-    .catch(err => {
-      console.error(err);
+    .catch(() => {
       alert("Server error, please try again later");
     });
 }
 </script>
-
 
 </body>
 </html>
